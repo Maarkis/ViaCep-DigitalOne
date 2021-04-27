@@ -1,0 +1,16 @@
+<mat-accordion *ngIf="address">
+    <mat-expansion-panel [disabled]="disabled">
+        <mat-expansion-panel-header>
+            <mat-panel-title> {{ address.logradouro }} </mat-panel-title>
+            <mat-panel-description
+                >{{ address.localidade }} -
+                {{ address.uf }}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>Bairro: {{ address.bairro }}</p>
+        <p>IBGE: {{ address.ibge }}</p>
+        <p>Gia: {{ address.gia }}</p>
+        <p>Siafi: {{ address.siafi }}</p>
+        <p>DDD: {{ address.ddd }}</p>
+    </mat-expansion-panel>
+</mat-accordion>

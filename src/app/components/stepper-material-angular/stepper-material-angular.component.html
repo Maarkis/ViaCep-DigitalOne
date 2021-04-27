@@ -1,0 +1,38 @@
+<mat-horizontal-stepper #stepper>
+    <mat-step>
+        <form>
+            <ng-template matStepLabel>Preencha seu CEP:</ng-template>
+            <app-search-address
+                (valueEmitter)="setValue($event)"
+            ></app-search-address>
+            <div>
+                <button mat-button matStepperNext (click)="getCep()">
+                    Próximo
+                </button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step label="Confirme seu endereço">
+        <div>
+            <app-expansion-material-angular
+                [address]="address"
+            ></app-expansion-material-angular>
+            <button mat-button matStepperPrevious>Voltar</button>
+            <button mat-button matStepperNext>Próximo</button>
+        </div>
+    </mat-step>
+    <mat-step label="Adicionar a lista">
+        <!-- <ng-template matStepLabel>Done</ng-template> -->
+        <div>
+            <app-expansion-material-angular
+                [disabled]="true"
+                [address]="address"
+            ></app-expansion-material-angular>
+            <button mat-button matStepperPrevious>Voltar</button>
+            <button mat-button (click)="addToAddressList(address)">
+                Adicionar
+            </button>
+            <button mat-button (click)="stepper.reset()">Resetar</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
